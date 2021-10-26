@@ -1,3 +1,4 @@
 numpy
-mpi4py
 libopenmpi-dev
+mpi4py
+
