@@ -1,5 +1,8 @@
 # guided-diffusion
 
+This repository is not an original official implementation of the work, but a refactored codebase.
+Performed within the FSE coursework at Skoltech.
+
 This is the codebase for [Diffusion Models Beat GANS on Image Synthesis](http://arxiv.org/abs/2105.05233).
 
 This repository is based on [openai/improved-diffusion](https://github.com/openai/improved-diffusion), with modifications for classifier conditioning and architecture improvements.
@@ -22,7 +25,7 @@ And then you could build project as following steps:
 Name of the file --- Dockerfile.
 
 #### Step1.2: Pull the docker image with building environment
-In case you don't want to build image we provide docker image on the DockerHub.
+In case you don't want to build image we provide docker image.
 So you can pull it next way:
 
 ```docker pull ghcr.io/grebenkovao/guided-diffusion:main
