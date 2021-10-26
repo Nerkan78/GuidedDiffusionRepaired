@@ -20,6 +20,9 @@ jobs:
         pip install numpy requests tqdm tensorflow scipy tensorflow blobfile torch Pillow lmdb mpi4py
         pip install pylint
         pip install typing-extensions
+        
+    - name: Tune pylint
+        pylint --generate-rcfile > $HOME/.pylintrc
     - name: Analysing the code with pylint
       run: |
         pylint $(find . -name "*.py" | xargs)
