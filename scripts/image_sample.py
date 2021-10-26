@@ -79,12 +79,15 @@ def main():
         label_arr = label_arr[: args.num_samples]
     if dist.get_rank() == 0:
         shape_str = "x".join([str(x) for x in arr.shape])
-        out_path = os.path.join(logger.get_dir(), f"samples_{shape_str}.npz")
+        # out_path = os.path.join(logger.get_dir(), f"samples_{shape_str}.npz")
+        out_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/samples/'
+        if not os.path.exists(out_path):
+            os.makedirs(out_path)
         logger.log(f"saving to {out_path}")
         if args.class_cond:
-            np.savez(out_path, arr, label_arr)
+            np.savez(out_path + f"samples_{shape_str}.npz", arr, label_arr)
         else:
-            np.savez(out_path, arr)
+            np.savez(out_path + f"samples_{shape_str}.npz", arr)
 
     dist.barrier()
     logger.log("sampling complete")

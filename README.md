@@ -90,6 +90,11 @@ For creating your own dataset, simply dump all of your images into a directory w
 
 The images will automatically be scaled and center-cropped by the data-loading pipeline. Simply pass `--data_dir path/to/images` to the training script, and it will take care of the rest.
 
+To download small data sample, use 
+```
+bash download_data.sh
+```
+from `scripts` folder.
 
 # Training models
 
@@ -158,6 +163,12 @@ mpiexec -n N python scripts/classifier_sample.py \
 
 To sample for 250 timesteps without DDIM, replace `--timestep_respacing ddim25` to `--timestep_respacing 250`, and replace `--use_ddim True` with `--use_ddim False`.
 
+For training you can use 
+```
+bash train.sh <DIFFUSION_STEPS> <NUM_THREADS>
+```
+You can set `<NUM_THREADS>` $>1$ if you want to more processes for running. 
+
 
 # Download pre-trained models
 
@@ -180,6 +191,12 @@ Here are the download links for each model checkpoint:
  * LSUN cat: [lsun_cat.pt](https://openaipublic.blob.core.windows.net/diffusion/jul-2021/lsun_cat.pt)
  * LSUN horse: [lsun_horse.pt](https://openaipublic.blob.core.windows.net/diffusion/jul-2021/lsun_horse.pt)
  * LSUN horse (no dropout): [lsun_horse_nodropout.pt](https://openaipublic.blob.core.windows.net/diffusion/jul-2021/lsun_horse_nodropout.pt)
+ 
+ To download a pretrained model you can run 
+ ```
+ bash download_model.sh <MODEL_NAME>
+ ```
+ from `scripts` folder.
  
 # Sampling
 
@@ -210,6 +227,11 @@ For these examples, we will generate 100 samples with batch size 4. Feel free to
 
 ```
 SAMPLE_FLAGS="--batch_size 4 --num_samples 100 --timestep_respacing 250"
+```
+
+You can use the following script for sampling.
+```
+bash sample.sh <SIZE_OF_IMAGE>
 ```
 
 ## Classifier guidance
@@ -269,6 +291,12 @@ python super_res_sample.py $MODEL_FLAGS --model_path models/64_256_upsampler.pt 
 MODEL_FLAGS="--attention_resolutions 32,16 --class_cond True --diffusion_steps 1000 --large_size 512 --small_size 128 --learn_sigma True --noise_schedule linear --num_channels 192 --num_head_channels 64 --num_res_blocks 2 --resblock_updown True --use_fp16 True --use_scale_shift_norm True"
 python super_res_sample.py $MODEL_FLAGS --model_path models/128_512_upsampler.pt $SAMPLE_FLAGS --base_samples 128_samples.npz
 ```
+
+You can use 
+```
+bash upsample.sh <FROM> <TO> 
+```
+for upsampling.
 
 ## LSUN models
 
