@@ -16,6 +16,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
+        apt install libopenmpi-dev
         pip install numpy requests tqdm tensorflow scipy tensorflow blobfile torch Pillow lmdb mpi4py
         pip install pylint
         pip install typing-extensions
