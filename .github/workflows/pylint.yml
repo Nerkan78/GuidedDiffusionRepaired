@@ -16,7 +16,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install numpy requests tqdm tensorflow scipy
+        pip install numpy requests tqdm tensorflow scipy tensorflow blobfile torch PIL lmdb mpi4py
         pip install pylint
         pip install typing-extensions
     - name: Analysing the code with pylint
