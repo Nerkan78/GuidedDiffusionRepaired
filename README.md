@@ -25,8 +25,7 @@ Name of the file --- Dockerfile.
 In case you don't want to build image we provide docker image on the DockerHub.
 So you can pull it next way:
 
-```
-$ docker pull BobrG/guided-diffusion:Dockerfile
+```docker pull ghcr.io/grebenkovao/guided-diffusion:main
 ```
 
 You can check it by listing images, for example:
